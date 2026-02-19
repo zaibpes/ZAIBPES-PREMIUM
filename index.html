@@ -9,10 +9,8 @@
 
   <style>
     html {
-      scroll-behavior: smooth;
-      overflow-x: hidden; /* PERBAIKAN: cegah geser kanan */
+  scroll-behavior: smooth;
     }
-
     * {
       margin: 0;
       padding: 0;
@@ -23,14 +21,10 @@
       font-family: 'Poppins', sans-serif;
       background: #f4f6f9;
       color: #333;
-      overflow-x: hidden; /* PERBAIKAN: cegah overflow horizontal */
     }
-
-    img {
-      max-width: 100%; /* PERBAIKAN: semua gambar responsive */
-      height: auto;    /* PERBAIKAN */
-    }
-
+html, body {
+  overflow-x: hidden;
+}
     header {
       background: linear-gradient(135deg, #4e73df, #1cc88a);
       color: white;
@@ -79,62 +73,81 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      width: 100%; /* PERBAIKAN */
     }
 
     .feature-box {
       background: white;
       padding: 30px;
       width: 30%;
-      max-width: 100%; /* PERBAIKAN: cegah melebar */
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       transition: 0.3s;
     }
 
     .slider {
-      position: relative;
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden; /* PERBAIKAN: pastikan tidak keluar */
-      border-radius: 12pt;
-    }
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12pt;
+}
 
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 100%; /* PERBAIKAN */
-    }
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 
-    .slides img {
-      width: 100%;
-      height: auto;
-      flex-shrink: 0;
-      border-radius: 12pt;
-    }
+.slides img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 12pt;
+}
 
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px 14px; /* PERBAIKAN: ganti pt ke px */
-      cursor: pointer;
-      border-radius: 50%;
-      font-size: 12px; /* PERBAIKAN */
-    }
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10pt 14pt;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 12pt;
+}
 
-    .prev { left: 10px; }  /* PERBAIKAN */
-    .next { right: 10px; } /* PERBAIKAN */
+.prev { left: 10pt; }
+.next { right: 10pt; }
 
-    .prev:hover, .next:hover {
-      background: rgba(0,0,0,0.8);
-    }
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
 
     .feature-box:hover {
       transform: translateY(-8px);
+    }
+
+
+    .price-section {
+      background: #1cc88a;
+      color: white;
+      padding: 70px 20px;
+    }
+
+    .price-box {
+      background: white;
+      color: #333;
+      padding: 10pt;
+      border-radius: 5pt;
+      display: inline-block;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .price-box h1 {
+      font-size: 16pt;
+      color: #1cc88a;
     }
 
     footer {
@@ -147,12 +160,118 @@
 
     @media(max-width: 768px) {
       header h1 {
-        font-size: 30px; /* PERBAIKAN: ganti pt ke px */
+        font-size: 30pt;
       }
-
       .feature-box {
-        width: 90%; /* PERBAIKAN: lebih aman di HP */
+        width: 80%;
       }
     }
   </style>
 </head>
+
+<body>
+
+<header>
+  <h1>ZAIBPES (ZIP Premium)</h1>
+  <p>Sawer mulai dari Rp 35.000 untuk dapetin mod eksklusif kualitas premium!</p>
+  <img width="200pt" src="https://blogger.googleusercontent.com/img/a/AVvXsEhG65WiCdQOfsJRa0ZP4eSRoid8JBJygqNuF_r0M33rMj7gya3vvXRWq7Q-aT5qu49lnVJrGbMWwUL8tqoFDfgR5RmeuHv900Yl8qZq31qjQMl-plDirGcmIxJNvG0k9jJ-uW993dTrusTkRwPq76GoyaG8aVw6TamnFfmjyaJThErlLh6cYIEPubkjz08=s359" alt="Preview Produk">
+  <br><br><a href="#preview" class="btn">Kirim Sawer 🚀</a>
+</header>
+
+<section>
+  <h2>Apa yang Kamu Dapatkan?</h2>
+  <div class="features">
+    <div class="feature-box">
+      <h3>✔ File Lengkap</h3>
+      <p>Semua file dalam format ZIP siap download tanpa ribet.</p>
+    </div>
+    <div class="feature-box">
+      <h3>✔ Mudah Digunakan</h3>
+      <p>Kompatibel di semua perangkat & sistem operasi.</p>
+    </div>
+    <div class="feature-box">
+      <h3>✔ Akses Instan</h3>
+      <p>File langsung dikirim setelah sawer kamu terkirim.</p>
+    </div>
+  </div>
+</section>
+<div class="features">
+<div class="feature-box" style="width: 80%;line-height: 16pt;">
+  <h3 style="text-align: center;">Cara Pemasangan</h3><br>
+  <p><strong>Pastikan menggunakan superLoader Tool.</strong></p>
+  <ol>
+    <li>Ekstrak file menggunakan WinRAR atau 7-Zip.</li>
+    <li>Pindahkan folder <strong>ZAIBPES_PITCH (Premium V1)</strong> ke direktori berikut:
+      <br>content/superLoader/RESOURCES/pitches/options/
+      <br>di dalam folder instalasi PES 2017 kamu.
+    </li>
+    <li>Buka superLoader Tool, pilih <strong>ZAIBPES_PITCH (Premium V1)</strong> pada menu Pitch, lalu klik <strong>Apply</strong>.</li>
+    <li>Jalankan game dan nikmati MOD barunya! 🎮✨</li>
+  </ol>
+</div></div>
+
+
+<section id="preview">
+  <h2>Preview</h2>
+  <div class="features">
+    <div class="feature-box" style="width: 80%;">
+
+  <div class="slider">
+    <button class="prev">&#10094;</button>
+
+    <div class="slides">
+      <img src="https://i.imgur.com/4wLR41L.jpeg">
+      <img src="https://i.imgur.com/VvvZQmq.jpeg">
+      <img src="https://i.imgur.com/94tPcD5.jpeg">
+      <img src="https://i.imgur.com/WEz0ukf.jpeg">
+      <img src="https://i.imgur.com/8e8VfKv.jpeg">
+    </div>
+
+    <button class="next">&#10095;</button>
+  </div>
+
+  <h3 style="margin-top:20px;">ZAIBPES PITCH EKSKLUSIF V1</h3><br>
+  <p style="font-size:12pt;color:#555;">Minimal Sawer</p><h1 style="color:#1cc88a;display: inline-block;font-size: 16pt;">Rp 35.000</h1><br>
+  <a href="https://zaibpes.blogspot.com/p/zaibpes-saweria.html" class="btn" style="border:1pt solid black;margin-top:10pt;">
+    Gass sawerr
+  </a><br><br>
+  <p style="font-weight: bold; font-size: 12pt;font-style: italic;">Note: Bagi yang sudah melakukan sawer Rp35.000, silakan klik tombol Form di bawah ini dan isi data yang diperlukan untuk pengiriman file MOD. Untuk info lanjut, hubungi kami via DM TikTok atau Halaman Facebook ZaibPes. Terima kasih 🙏</p>
+<a href="https://forms.gle/8ZtmDhDFBm5hEdK5A" class="btn" style="border:1pt solid black;margin-top:10pt;">
+    Klik Formulir
+  </a>
+</div>
+
+  </div>
+  
+</section>
+
+
+
+
+<footer>
+  © 2026 ZAIBPES - ZIP Premium | All Rights Reserved
+</footer>
+<script>
+let index = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = document.querySelectorAll('.slides img').length;
+
+document.querySelector('.next').addEventListener('click', () => {
+  index++;
+  if (index >= totalSlides) index = 0;
+  updateSlide();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  index--;
+  if (index < 0) index = totalSlides - 1;
+  updateSlide();
+});
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}
+</script>
+
+</body>
+</html>
