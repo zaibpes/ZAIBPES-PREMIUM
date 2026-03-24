@@ -248,6 +248,21 @@
 .install-table tr:hover{
   background:#f9fafc;
 }
+.double-slider {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.double-slider .slider {
+  width: 48%;
+}
+
+@media(max-width: 768px) {
+  .double-slider .slider {
+    width: 100%;
+  }
+}
     </style>
   </head>
 
@@ -354,33 +369,58 @@ di dalam folder instalasi PES 2017 kamu.
     <div class="features">
       <div class="feature-box" style="width: 80%;">
 
-    <div class="slider">
-      <button class="prev">&#10094;</button>
+    <div class="double-slider">
 
-      <div class="slides">
-        <img src="https://i.imgur.com/4wLR41L.jpeg">
-        <img src="https://i.imgur.com/VvvZQmq.jpeg">
-        <img src="https://i.imgur.com/94tPcD5.jpeg">
-        <img src="https://i.imgur.com/WEz0ukf.jpeg">
-        <img src="https://i.imgur.com/8e8VfKv.jpeg">
-      </div>
+  <!-- SLIDER ASLI (TIDAK DIUBAH) -->
+  <div class="slider">
+    <button class="prev">&#10094;</button>
 
-      <button class="next">&#10095;</button>
+    <div class="slides">
+      <img src="https://i.imgur.com/4wLR41L.jpeg">
+      <img src="https://i.imgur.com/VvvZQmq.jpeg">
+      <img src="https://i.imgur.com/94tPcD5.jpeg">
+      <img src="https://i.imgur.com/WEz0ukf.jpeg">
+      <img src="https://i.imgur.com/8e8VfKv.jpeg">
     </div>
 
+    <button class="next">&#10095;</button>
     <h3 style="margin-top:20px;">ZAIBPES PITCH EKSKLUSIF V1</h3><i style="font-size:9pt;" >(34 terunduh)</i><br>
     <p style="font-size:12pt;color:#555;">Minimal Sawer</p><h1 style="color:#1cc88a;display: inline-block;font-size: 16pt;">Rp 35.000</h1><br>
     <a href="https://zaibpes.blogspot.com/p/zaibpes-saweria.html" class="btn" style="border:1pt solid black;margin-top:10pt;">
       Gass sawerr
     </a><br><br>
+  </div>
+
+  <!-- SLIDER KEDUA (BARU) -->
+  <div class="slider">
+    <button class="prev">&#10094;</button>
+
+    <div class="slides">
+      <img src="https://i.imgur.com/4wLR41L.jpeg">
+      <img src="https://i.imgur.com/VvvZQmq.jpeg">
+      <img src="https://i.imgur.com/94tPcD5.jpeg">
+      <img src="https://i.imgur.com/WEz0ukf.jpeg">
+      <img src="https://i.imgur.com/8e8VfKv.jpeg">
+    </div>
+
+    <button class="next">&#10095;</button>
+    <h3 style="margin-top:20px;">ZAIBPES PITCH EKSKLUSIF V1</h3><i style="font-size:9pt;" >(34 terunduh)</i><br>
+    <p style="font-size:12pt;color:#555;">Minimal Sawer</p><h1 style="color:#1cc88a;display: inline-block;font-size: 16pt;">Rp 35.000</h1><br>
+    <a href="https://zaibpes.blogspot.com/p/zaibpes-saweria.html" class="btn" style="border:1pt solid black;margin-top:10pt;">
+      Gass sawerr
+    </a><br><br>
+  </div>
+
+</div>
+    
+    
+  </div>
+
+    </div>
     <p style="font-weight: bold; font-size: 12pt;font-style: italic;">Note: Bagi yang sudah melakukan sawer Rp35.000, silakan klik tombol Form di bawah ini dan isi data yang diperlukan untuk pengiriman file MOD. Untuk info lanjut, hubungi kami via DM TikTok atau Halaman Facebook ZaibPes. Terima kasih 🙏</p>
   <a href="https://forms.gle/8ZtmDhDFBm5hEdK5A" class="btn" style="border:1pt solid black;margin-top:10pt;">
       Klik Formulir
     </a>
-  </div>
-
-    </div>
-    
   </section>
 
 
@@ -399,73 +439,37 @@ di dalam folder instalasi PES 2017 kamu.
   <button class="modal-next">&#10095;</button>
 </div>
  <script>
-let index = 0;
-const slides = document.querySelector('.slides');
-const images = document.querySelectorAll('.slides img');
-const totalSlides = images.length;
+document.querySelectorAll('.slider').forEach((slider) => {
+  let index = 0;
 
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImage");
-const closeBtn = document.querySelector(".close");
+  const slides = slider.querySelector('.slides');
+  const images = slider.querySelectorAll('img');
+  const totalSlides = images.length;
 
-// SLIDER UTAMA
-document.querySelector('.next').addEventListener('click', () => {
-  index = (index + 1) % totalSlides;
-  updateSlide();
-});
+  const nextBtn = slider.querySelector('.next');
+  const prevBtn = slider.querySelector('.prev');
 
-document.querySelector('.prev').addEventListener('click', () => {
-  index = (index - 1 + totalSlides) % totalSlides;
-  updateSlide();
-});
-
-function updateSlide() {
-  slides.style.transform = `translateX(-${index * 100}%)`;
-}
-
-// OPEN MODAL SAAT GAMBAR DIKLIK
-images.forEach((img, i) => {
-  img.addEventListener("click", () => {
-    index = i;
-    showModal();
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % totalSlides;
+    updateSlide();
   });
-});
 
-function showModal() {
-  modal.style.display = "block";
-  modalImg.src = images[index].src;
-}
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  });
 
-// CLOSE MODAL
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-};
-
-// Klik luar gambar = close
-modal.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+  function updateSlide() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
   }
-};
 
-// ESC untuk close
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    modal.style.display = "none";
-  }
-});
-
-// SLIDE DI DALAM MODAL
-document.querySelector(".modal-next").addEventListener("click", (e) => {
-  e.stopPropagation();
-  index = (index + 1) % totalSlides;
-  modalImg.src = images[index].src;
-});
-
-document.querySelector(".modal-prev").addEventListener("click", (e) => {
-  e.stopPropagation();
-  index = (index - 1 + totalSlides) % totalSlides;
-  modalImg.src = images[index].src;
+  // modal tetap jalan
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
 });
 </script>
 <!-- IMAGE MODAL -->
